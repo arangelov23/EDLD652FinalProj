@@ -12,26 +12,38 @@ library(flexdashboard)
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
+library(gt)
+library(scales)
 ```
 
 ```{r data, include = FALSE}
+
+setwd("C:/Users/Administrator/Desktop/EDLD652FinalProj/data")
+
 library(readxl)
-sentiments <- read_excel("C:/Users/Administrator/Desktop/EDLD652FinalProj/data/edld652data.xlsx")
-View(sentiments)
+edld652data <- read_excel("C:/Users/Administrator/Desktop/EDLD652FinalProj/data/edld652data.xlsx")
+View(edld652data)
+
+thematic <- read_excel("C:/Users/Administrator/Desktop/EDLD652FinalProj/data/thematic.xlsx")
+View(thematic)
 ```
 
 ```{r manipulations, include = FALSE}
-st_per_year <- sentiments %>%
+st_per_year <- edld652data %>%
   count(year, sentiment)
 print(st_per_year) 
 
-st_per_year_key <- sentiments %>%
+st_per_year_key <- edld652data %>%
   count(year, sentiment, keyword)
 print(st_per_year_key)
 ```
 
+```{r themes, include = FALSE}
+smry <- thematic %>%
+  group_by(year, theme) %>%
+  summarise(count = sum(count), .groups = "drop")
+```
 
-Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Plot A
@@ -86,9 +98,22 @@ ggplot(st_per_year_key, aes(x = year, y = n, color = sentiment, group = sentimen
   )
 ```
 
-### Chart C
+### Plot C
 
 ```{r}
-
+ggplot(smry, aes(x = year, y = theme, fill = count)) +
+  geom_tile(color = "white") + 
+  scale_fill_gradient(low = "white", high = "red") +
+  labs(
+    title = "Major Theme Occurance Over Years",
+    x = "Year",
+    y = "Theme",
+    fill = "Usage Count",
+    caption = "r/Genshin_Impact"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
 ```
 
