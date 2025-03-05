@@ -3,6 +3,9 @@ title: "Genshin Impact Qualitative Sentiment Analysis"
 author: "Will Arangelov"
 output: 
   flexdashboard::flex_dashboard:
+    theme: 
+      version: 4
+      bootswatch: united
     orientation: columns
     vertical_layout: fill
 ---
