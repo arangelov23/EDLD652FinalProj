@@ -6,7 +6,7 @@ output:
     theme: 
       version: 4
       bootswatch: united
-    orientation: columns
+    orientation: row
     vertical_layout: fill
 ---
 
@@ -17,6 +17,7 @@ library(ggplot2)
 library(dplyr)
 library(gt)
 library(scales)
+library(stringr)
 ```
 
 ```{r data, include = FALSE}
@@ -29,6 +30,9 @@ View(edld652data)
 
 thematic <- read_excel("C:/Users/Administrator/Desktop/EDLD652FinalProj/data/thematic.xlsx")
 View(thematic)
+
+min_t <- read_excel("C:/Users/Administrator/Desktop/EDLD652FinalProj/data/minor_t.xlsx")
+view(min_t)
 ```
 
 ```{r manipulations, include = FALSE}
@@ -47,6 +51,14 @@ smry <- thematic %>%
   summarise(count = sum(count), .groups = "drop")
 ```
 
+```{r minor, include=FALSE}
+top_20 <- min_t %>%
+  arrange(desc(count)) %>%
+  slice_head(n = 20) %>%
+  mutate(highlight = ifelse(str_detect(minor_t, "Game"), "Game-related", "Other"))
+```
+
+Row {data-height=50%}
 -----------------------------------------------------------------------
 
 ### Plot A
@@ -57,11 +69,10 @@ ggplot(st_per_year, aes(x = year, y = n, color = sentiment, group = sentiment)) 
   geom_point() +
   scale_color_viridis_d(option = "plasma") +
   labs(
-    title = "Genshin Impact Player's Sentiment about Representation",
-    subtitle = "Analyzing sentiment scores from 2020 to 2024",
+    title = str_wrap("Genshin Impact Player's Sentiments about Representation", width = 40),
     x = "Year",
-    y = "Sentiment",
-    color = "Year", 
+    y = "Count",
+    color = "Sentiment", 
     caption = "Data source: r/Genshin_Impact"
   ) +
   theme_minimal() + 
@@ -73,8 +84,6 @@ ggplot(st_per_year, aes(x = year, y = n, color = sentiment, group = sentiment)) 
   )
 ```
 
-Column {data-width=350}
------------------------------------------------------------------------
 
 ### Plot B
 
@@ -85,11 +94,10 @@ ggplot(st_per_year_key, aes(x = year, y = n, color = sentiment, group = sentimen
   scale_color_viridis_d(option = "plasma") +
   facet_wrap(~keyword) +
   labs(
-    title = "Genshin Impact Player's Sentiments per Keyword",
-    subtitle = "Analyzing sentiment scores from 2020 to 2024",
+    title = str_wrap("Genshin Impact Player's Sentiments per Keyword", width = 40),
     x = "Year",
-    y = "Sentiment",
-    color = "Year", 
+    y = "Count",
+    color = "Sentiment", 
     caption = "Data source: r/Genshin_Impact"
   ) +
   theme_minimal() + 
@@ -97,9 +105,12 @@ ggplot(st_per_year_key, aes(x = year, y = n, color = sentiment, group = sentimen
     plot.title = element_text(face = "bold", size = 18, hjust = 0.5),
     plot.subtitle = element_text(size = 14, hjust = 0.5),
     axis.text = element_text(size = 12),
-    axis.title = element_text(size = 14)
-  )
+    axis.title = element_text(size = 14), 
+    axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+
+Row {data-height=50%}
+-----------------------------------------------------------------------
 
 ### Plot C
 
@@ -118,5 +129,20 @@ ggplot(smry, aes(x = year, y = theme, fill = count)) +
   theme(
     axis.text.x = element_text(angle = 45, hjust = 1)
   )
+```
+
+### Plot D
+
+```{r}
+ggplot(top_20, aes(x = reorder(minor_t, count), y = count, fill = highlight)) +
+  geom_col() +
+  scale_fill_viridis_d(option = "C", begin = 0.2, end = 0.8) + 
+  coord_flip() + 
+  labs(title = "Top 20 Minor Themes",
+       x = "Minor Themes", 
+       y = "Count",
+       fill = "Category",
+      caption = "r/Genshin_Impact") +
+  theme_minimal()
 ```
 
