@@ -1,5 +1,5 @@
 ---
-title: "Genshin Impact Qualitative Sentiment Analysis"
+title: "The Abyss for Authenticity: Representation Controversy in Genshin Impact"
 author: "Will Arangelov"
 output: 
   flexdashboard::flex_dashboard:
@@ -58,10 +58,68 @@ top_20 <- min_t %>%
   mutate(highlight = ifelse(str_detect(minor_t, "Game"), "Game-related", "Other"))
 ```
 
+# Project Description 
+
+### **Overview**
+
+This analysis delves into how players react to representation of in-game content, emphasizing the importance of identity in games like Genshin Impact (GI), and the social structures and power dynamics that influence player behavior.A focus on the platform Reddit is based on its content creation dynamics, which are entirely user-generated (de Wildt, 2020), which continues to draw the interest of social science research (Hanson et al., 2023). The platform’s communities, or subreddits, operate under self-governance, with moderators by their personal interests, in this case, video games, and in particular, miHoYo’s GI.
+
+These dynamics will generate an environment where users who self-identify with the game or the community, are at liberty to post, comment, and share content in the subreddit, that reflects their own opinions, and worldviews (Bergstrom & Poor, 2022). This process of socialization, which assists community-building and identity self-construct, is especially salient in forum-based platforms (Bowman et al., 2022).
+
+Fans of a game interact with official and unofficial content, which includes user-generated content in specific subreddits (de Wildt, 2020). For fans of GI, the most popular of the subreddits is r/Genshin_Impact, with over 2.6 million members (Reddit, 2024). Just like the majority of Reddit, users of the GI subreddit primarily express themselves in English and originate from WEIRD (western, educated, industrialized, rich, and democratic) countries (Hanson et al., 2023; SemRush, 2024).
+
+### **Methodology**
+
+To properly gauge the discourse in the target subreddit, we conducted a thematic analysis, considering all the posts that matched our keywords, starting June 7, 2019, the launch of the subreddit to August 2024. We applied methodology previously implemented (Bowman et al., 2022; Hanson et al., 2023) that studied major themes and sentiment from discourse expressed by redditors, regarding games, their experiences, and reactions.
+
+The researchers independently coded a subset of an initial random sample of 30 posts, in order to identify recurrent thematic motifs and tone (positive, negative, mixed, and random) of the examined publications and reach intercoder reliability. We have used traditional Diversity, Equity and Inclusion framework as a base for the major themes in the analysis. Based on these findings, a codebook was created, aggregating minor themes and matching them into the DEI broader categories, which encompass more variety of perspectives taken from the discourse, and allow for more generalizable classifications.
+
+For our analysis, we've used the following keywords: representation, diversity, equity and inclusion. Posts that had the words used in gaming context, without acknowledging traditional DEI framework were excluded. Posts that have visuals or videos were also excluded. A total of 171 posts remained are part of the final sample.
+ 
+### **References**
+
+Bergstrom, K., & Poor, N. (2022). Signaling the Intent to Change Online Communities: A Case From a Reddit Gaming Community. Social Media + Society, 8(2), 205630512210968. https://doi.org/10.1177/20563051221096817
+
+Bowman, N. D., Bowen, D. A., Mercado, M. C., Resignato, L. J., & De Villemor Chauveau, P. (2022). “I did it without hesitation. Am I the bad guy?”: Online conversations in response to controversial in-game violence. New Media & Society, 146144482210788. https://doi.org/10.1177/14614448221078865
+
+Craig, S. L., & McInroy, L. (2014). You Can Form a Part of Yourself Online: The Influence of New Media on Identity Development and Coming Out for LGBTQ Youth. Journal of Gay & Lesbian Mental Health, 18(1), 95–109. https://doi.org/10.1080/19359705.2013.777007 
+
+de Wildt, L. (2020). Playing at Religion: Encoding/decoding Religion in Videogames. https://doi.org/10.13140/RG.2.2.32599.70560/1
+
+Gray, K. L. (2014). Race, gender and deviance in Xbox Live: Theoretical perspectives from the virtual margins. Anderson.
+
+Hanson, K. R., Pascoe, C. J., & Light, R. (2023). “It’s Getting Difficult to Be a Straight White Man”: Bundled Masculinity Grievances on Reddit. Sex Roles, 88(3–4), 169–186. https://doi.org/10.1007/s11199-022-01344-8 
+
+Nakamura, L. (2015) “Racism, Sexism, and Gaming’s Cruel Optimism”. In Malkowski, J., & Russworm, T. M. (Eds.). (2017). Gaming Representation: Race, Gender, and Sexuality in Video Games. Indiana University Press. https://doi.org/10.2307/j.ctt2005rgq 
+
+Moody-Ramirez, M., Byerly, C., Mishra, S., & Waisbord, S. R. (2023). Media Representations and Diversity in the 100 Years of Journalism & Mass Communication Quarterly. Journalism & Mass Communication Quarterly, 100(4), 826–846. https://doi.org/10.1177/10776990231196894
+
+Nieborg, D. B., & Foxman, M. (2023). Mainstreaming and game journalism. The MIT Press.
+
+Reddit. (2024). R/Genshin_Impact [Subreddit]. Genshin Impact Official Subreddit. Retrieved March 25, 2024, from https://www.reddit.com/r/Genshin_Impact/
+
+Scharrer, E., Ramasubramanian, S., & Banjo, O. (2022). Media, Diversity, and Representation in the U.S.: A Review of the Quantitative Research Literature on Media Content and Effects. Journal of Broadcasting & Electronic Media, 66(4), 723–749. https://doi.org/10.1080/08838151.2022.2138890  
+
+SemRush. (2024). reddit.com—February 2024 Traffic Stats [Aggregator]. SemRush. Retrieved March 25, 2024, from https://www.semrush.com/website/reddit.com/overview/
+
+Stets, J. E., & Burke, P. J. (2014). Self-Esteem and Identities. Sociological Perspectives, 57(4), 409–433. https://doi.org/10.1177/0731121414536141
+
+Williams, D., Martins, N., Consalvo, M., & Ivory, J. D. (2009). The virtual census: Representations of gender, race and age in video games. New Media & Society, 11(5), 815–834. https://doi.org/10.1177/1461444809105354 
+
+---
+
+# RQ1 
+
+Video games are often called training grounds for new technologies, places for experimentation, and children’s playgrounds (Nieborg & Foxman, 2023), and their industry is blossoming, however, long-standing problems with representation remain viral and turbulent.
+
+Games are hegemonic spaces, where the presence of marginalized communities is diminished and compromised (Gray, 2014). Nakamura (2015) suggests that players from different backgrounds are put in unequal settings, and one available method to achieve equality is a meritocracy, which she calls the “cruelest of optimism”. Games over-represent males and white adults, resulting in the systematic exclusion of females, people of color, nonbinary, and elderly (Williams et al., 2009).  
+
+*RQ1. What are the sentiments of Genshin Impact players toward the representation displayed in the game's content?*
+
 Row {data-height=50%}
 -----------------------------------------------------------------------
 
-### Plot A
+### PLot A Line chart with multiple groups
 
 ```{r}
 ggplot(st_per_year, aes(x = year, y = n, color = sentiment, group = sentiment)) + 
@@ -83,8 +141,7 @@ ggplot(st_per_year, aes(x = year, y = n, color = sentiment, group = sentiment)) 
   )
 ```
 
-
-### Plot B
+### Plot B Faceted Multi-Line Time-Series Plot
 
 ```{r}
 ggplot(st_per_year_key, aes(x = year, y = n, color = sentiment, group = sentiment)) + 
@@ -107,10 +164,19 @@ ggplot(st_per_year_key, aes(x = year, y = n, color = sentiment, group = sentimen
     axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
+--- 
+
+# RQ2
+
+The representation of identity is crucial in the current media environment, as it reflects and shapes society and its functions over time (Craig & McInroy, 2014). Identity can be described as a collection of interpretations that delineate individuals based on beliefs, social groups, and the distinct qualities that set them apart as individuals (Stets & Burke, 2014). 
+
+The portrayal of diverse identities that focus on race, gender, and sexuality in media has increased in the past few years, particularly in the United States (Scharrer et al., 2022), which does not mean that bigotry or systemic oppression decreased (Moody-Ramirez et al., 2023). As these representations increase, nuances and implications of representation arise, such as false representations or no representation at all, which is also known as “symbolic annihilation” when the group is absent from the media (Scharrer et al., 2022).
+
+*RQ2: What is the discourse around representation by Genshin Impact players on Reddit?*
+
 Row {data-height=50%}
 -----------------------------------------------------------------------
-
-### Plot C
+### Plot C Heatmap
 
 ```{r}
 ggplot(smry, aes(x = year, y = theme, fill = count)) +
@@ -132,8 +198,7 @@ ggplot(smry, aes(x = year, y = theme, fill = count)) +
   )
 ```
 
-### Plot D
-
+### Plot D Ranked Bar Chart
 ```{r}
 ggplot(top_20, aes(x = reorder(minor_t, count), y = count, fill = highlight)) +
   geom_col() +
